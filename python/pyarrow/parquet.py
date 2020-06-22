@@ -946,6 +946,8 @@ class ParquetManifest:
 
         filtered_files = []
         for path in files:
+            if path.strip() == '':
+                continue
             full_path = self.pathsep.join((base_path, path))
             if path.endswith('_common_metadata'):
                 self.common_metadata_path = full_path
